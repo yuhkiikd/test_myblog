@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Blog</title>
+</head>
+<body>
+    <h3>下記内容で、投稿する。</h3>
+    <%= form_with(model: @test_blog, local: true) do |form| %>
+        <%= form.hidden_field :title %>
+        <%= form.hidden_field :content %>
+
+        <p>タイトル： <%= @test_blog.title %></p>
+        <p>内容： <%= @test_blog.content %></p>
+        <%= form.submit "投稿する" %>
+
+        <%= form.submit "戻る", name: 'back' %>
+    <% end %>
+</body>
+</html>

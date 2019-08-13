@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ブログ一覧</h1>
+    <p><%= notice %></p>
+    <table>
+        <tr>
+            <th>タイトル</th>
+            <th>内容</th>
+        </tr>
+    <% @test_blogs.each do |test_blog| %>
+        <tr>
+            <td><%= test_blog.id %></td>
+            <td><%= test_blog.title %></td>
+            <td><%= test_blog.content %></td>
+            <td><%= link_to '詳細を確認する', test_blog_path(test_blog.id) %></td>
+            <td><%= link_to 'ブログを編集する', edit_test_blog_path(test_blog.id) %></td>
+            <td><%= link_to 'ブログを削除する', test_blog_path(test_blog.id), method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %></td>
+        </tr>
+    <% end %>
+    </table>
+    <%= link_to 'ブログ新規作成画面へ', new_test_blog_path %>
+</body>
+</html>
